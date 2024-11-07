@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Section - HelpMe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFFFFF;
+            color: #333333;
+            margin: 0;
+            padding: 20px;
+        }
+        .faq-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-question {
+            font-family: 'Roboto', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            transition: color 0.3s ease;
+        }
+        .faq-question.active {
+            color: #2980B9;
+        }
+        .faq-answer {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            display: none;
+            padding: 10px 15px;
+            border-bottom: 1px solid #ddd;
+            background-color: #f9f9f9;
+        }
+        .faq-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="faq-section">
+    <div class="faq-item">
+        <div class="faq-question">What is HelpMe?</div>
+        <div class="faq-answer">HelpMe is a support site designed to assist users with their technical and non-technical inquiries.</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">How do I reset my password?</div>
+        <div class="faq-answer">To reset your password, click on 'Forgot Password' at the login screen and follow the instructions provided.</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-question">Where can I find tutorials?</div>
+        <div class="faq-answer">Tutorials can be found under the 'Resources' section of our HelpMe site.</div>
+    </div>
+</div>
+
+<script>
+    document.querySelectorAll('.faq-question').forEach(question => {
+        question.addEventListener('click', () => {
+            const currentlyActive = document.querySelector('.faq-question.active');
+            if (currentlyActive && currentlyActive !== question) {
+                currentlyActive.classList.remove('active');
+                currentlyActive.nextElementSibling.style.display = 'none';
+            }
+            
+            question.classList.toggle('active');
+            const answer = question.nextElementSibling;
+            if (question.classList.contains('active')) {
+                answer.style.display = 'block';
+            } else {
+                answer.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
